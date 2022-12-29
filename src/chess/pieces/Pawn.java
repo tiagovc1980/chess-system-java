@@ -27,9 +27,9 @@ public class Pawn extends ChessPiece {
 			p.setValues(position.getRow() - 2, position.getColumn());
 			Position p2 = new Position(position.getRow() - 1, position.getColumn());
 			if (getBoard().positionExists(p) && !getBoard().thereIsAPiece(p) && getBoard().positionExists(p2)
-					&& !getBoard().thereIsAPiece(p2))
-				;
-			mat[p.getRow()][p.getColumn()] = true;
+					&& !getBoard().thereIsAPiece(p2) && getMoveCount() == 0) {				
+				mat[p.getRow()][p.getColumn()] = true;
+			}
 
 			// diagonal esquerda acima
 			p.setValues(position.getRow() - 1, position.getColumn() - 1);
@@ -52,9 +52,10 @@ public class Pawn extends ChessPiece {
 			// movimento para frente 2 casas no inicio
 			p.setValues(position.getRow() + 2, position.getColumn());
 			Position p2 = new Position(position.getRow() + 1, position.getColumn());
-			if (getBoard().positionExists(p) && !getBoard().thereIsAPiece(p) && getBoard().positionExists(p2)
-					&& !getBoard().thereIsAPiece(p2));
-			mat[p.getRow()][p.getColumn()] = true;
+			if	(getBoard().positionExists(p) && !getBoard().thereIsAPiece(p) && getBoard().positionExists(p2)
+						&& !getBoard().thereIsAPiece(p2) && getMoveCount() == 0) {				
+				mat[p.getRow()][p.getColumn()] = true;
+			}
 
 			// diagonal esquerda abaixo
 			p.setValues(position.getRow() + 1, position.getColumn() - 1);
